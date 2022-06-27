@@ -21,7 +21,6 @@ has_many :Programs
 |email              |string      |unique: true,null: false       |
 |encrypted_password |string      |null: false                    |
 |level              |integer     |null: false                    |
-|team               |references  |null: false, foreign_key: true |
 
 
 ### Association
