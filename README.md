@@ -20,7 +20,6 @@ has_many :Programs
 |nickname           |string      |null: false                    |
 |email              |string      |unique: true,null: false       |
 |encrypted_password |string      |null: false                    |
-|level              |integer     |null: false                    |
 
 
 ### Association
@@ -31,7 +30,8 @@ has_many :user_teams
 |Column             |Type       |Options                        |
 |-------------------|-----------|-------------------------------|
 |user               |reference  |null: false, foreign_key: true |
-|name               |reference  |null: false, foreign_key: true |
+|team               |reference  |null: false, foreign_key: true |
+|level_id           |integer    |null: false                    |
 
 ### Association
 belongs_to :user
