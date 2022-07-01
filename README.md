@@ -13,7 +13,7 @@ has_many :Customers
 has_many :User_teams
 has_many :Programs
 
-## users
+## Users
 
 |Column             |Type        |Options                        |
 |-------------------|------------|-------------------------------|
