@@ -1,0 +1,42 @@
+<%= render "shared/header"%>
+<div class="index-main">
+  <div class="hero">
+    <%= image_tag "top_img.jpg", class:"hero-image" %>
+    <div class="hero-items">
+      <div class="hero-text__main">TicketBunchへようこそ</div>
+      <div class="service-content">
+        <div class="service-items">
+          <div class="service-explanation-top">TicketBunchでできること</div>
+          <ul class="service-lists">
+            <li class="service-list-main" id="s-top">機能一覧</li>
+            <li class="service-list-program" id="s-program">公演管理</li>
+            <li class="service-list-reserve" id="s-reserve">予約管理</li>
+            <li class="service-list-seat" id="s-seat">配席管理</li>
+            <li class="service-list-customer" id="s-customer">顧客管理</li>
+          </ul>
+          <ul class="service-explanation-lists">
+            <li class="service-explanation-main" id="se-top">
+              気になるサービスタブにカーソルを合わせてください
+            </li>
+            <li class="service-explanation-program" id="se-program" style="display:none;">
+              公演情報を一括登録、過去の公演情報や予約者情報を一覧で見ることができます
+              <%= image_tag "sample1.png", class:"explanation-image" %>
+            </li>
+            <li class="service-explanation-reserve" id="se-reserve" style="display:none;">
+              予約情報を顧客ごとに登録でき、顧客情報や予約情報の管理を行うことができます
+              <%= image_tag "sample1.png", class:"explanation-image" %>
+            </li>
+            <li class="service-explanation-seat" id="se-seat" style="display:none;">
+            空席情報やチケット倍率など、さまざまな情報を参照して配席を行うことができます
+              <%= image_tag "sample1.png", class:"explanation-image" %>
+            </li>
+            <li class="service-explanation-customer" id="se-customer" style="display:none;">
+              連絡先や過去の予約状況が参照でき、挨拶状や案内状の送付にも役立ちます
+              <%= image_tag "sample1.png", class:"explanation-image" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
+<%= render "shared/footer"%>

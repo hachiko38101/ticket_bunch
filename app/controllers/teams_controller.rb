@@ -5,11 +5,12 @@ class TeamsController < ApplicationController
   end
 
   def new
-      @user = current_user
-      @team = Team.new
-      if @user.teams.present？
-        redirect_to team_path(@team.id)
-      end
+    @user = current_user
+    @team = Team.new
+    if Team.exists?(name: @user.nickname)
+      my_team = Team.where(name: @user.nickname)
+      redirect_to team_path(my_team.ids)
+    end
   end
 
   def create
@@ -18,7 +19,7 @@ class TeamsController < ApplicationController
       redirect_to team_path(@team.id)
     else
       redirect_to new_team_path
-   end
+    end
   end
 
   def show
