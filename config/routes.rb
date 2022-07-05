@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_scope :user do
-    root "users/sessions#new"
-  end
-  devise_for :users, :controllers => {
-    sessions: 'users/sessions'
-  }
-  resources :team, only: [:index]
+  root to: "teams#index"
+  resources :teams, only: [:index, :new, :create, :show]
 end

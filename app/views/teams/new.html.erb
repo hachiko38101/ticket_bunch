@@ -1,0 +1,15 @@
+<%= render "shared/header"%>
+<div class="index-main">
+  <div class="hero">
+    <%= image_tag "top_img.jpg", class:"hero-image" %>
+    <div class="hero-items-new">
+      <div class="service-btn-new">
+          <%= form_with model: @team, local: true do |f|%>
+            <input name="team[name]" type="hidden" value=<%= current_user.nickname %>>
+            <%= f.submit "マイページへ移動"%>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer"%>

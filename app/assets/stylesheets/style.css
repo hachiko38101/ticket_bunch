@@ -4,7 +4,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  width: 100vw;
+  width: 1440px;
   background-color: #e4c3f1;
   align-items: center;
   height:80px;
@@ -42,7 +42,7 @@
 　フッター
 ********************************************************/
 .footer {
-  width: 100vw;
+  width: 1440px;
   height: 70px;
   background-color: #FAFAFA;
 }
@@ -55,18 +55,18 @@
 }
 
 /******************************************************** 
-　トップページ 
+　共通事項 
 ********************************************************/
 .hero {
   position: relative;
-  width: 100vw;
-  height: calc(100vh - 150px);
+  width: 1440px;
+  height: 671px;
   font-family: 'Yusei Magic', sans-serif;
 }
 
 .hero-image {
   width: 100%;
-  height: calc(100vh - 150px);
+  height: 100%;
   object-fit: cover;
   opacity: 30%;
 }
@@ -75,14 +75,15 @@
   position: absolute;
   top: 15%;
   padding: 0 100px 0 50px;
-  width: calc(100vw - 150px);
+  width: calc(1440px - 150px);
 }
 
 .hero-text__main {
+  display: block;
   font-size: 70px;
   font-weight: 600;
   color: #535353;
-  margin: 0 0 0 60px;
+  margin: 0 60px;
 }
 
 .service-items{
@@ -104,18 +105,8 @@
 .service-btn {
   background-color: #e4c3f1;
   color:#FFFFFF;
-  padding: 30px 30px 10px 30px;
+  padding: 15px;
   margin: 60px 50px 60px 0 ;
-  border-radius: 10px;
-  width: 250px;
-  border: #c062ff solid 3px;
-}
-
-.service-btn-new {
-  background-color: #e4c3f1;
-  color:#FFFFFF;
-  padding: 30px 30px 10px 30px;
-  margin: 60px 50px 60px 100px ;
   border-radius: 10px;
   width: 250px;
   border: #c062ff solid 3px;
@@ -123,40 +114,43 @@
 
 .service-lists{
   display: flex;
-  color:#c062ff;
+  color: #535353;
   margin-top: 10px;
 }
 
-.service-list-program{
+.service-list-main{
   background-color: #FAFAFA;
   margin-right: 8px;
   padding: 5px 10px;
   border-radius: 8px 8px 0 0;
-  border-bottom: solid #FAFAFA 3px;
+}
+
+.service-list-program{
+  background-color: rgb(255, 237, 255);
+  margin-right: 8px;
+  padding: 5px 10px;
+  border-radius: 8px 8px 0 0;
 }
 
 .service-list-reserve{
-  background-color: #FAFAFA;
+  background-color: rgb(255, 255, 213);
   margin-right: 8px;
   padding: 5px 10px;
   border-radius: 8px 8px 0 0;
-  border-bottom: solid #e4c3f1 3px;
 }
 
 .service-list-seat{
-  background-color: #FAFAFA;
+  background-color:#d0f0ba;
   margin-right: 8px;
   padding: 5px 10px;
   border-radius: 8px 8px 0 0;
-  border-bottom: solid #e4c3f1 3px;
 }
 
 .service-list-customer{
-  background-color: #FAFAFA;
+  background-color: #d1cdff;
   margin-right: 8px;
   padding: 5px 10px;
   border-radius: 8px 8px 0 0;
-  border-bottom: solid #e4c3f1 3px;
 }
 
 .service-explanation-lists{
@@ -167,23 +161,34 @@
   height:200px;
 }
 
-.service-explanation-program{
+.service-explanation-main{
   background-color: #FAFAFA;
+  border-bottom: solid #FAFAFA 3px;
+  height:250px;
+}
+
+.service-explanation-program{
+  background-color: rgb(255, 237, 255);
+  border-bottom: solid #e4c3f1 3px;
+  height:250px;
 }
 
 .service-explanation-reserve{
-  display: none;
-  background-color: #FAFAFA;
+  background-color: rgb(255, 255, 213);
+  border-bottom: solid #e4c3f1 3px;
+  height:250px;
 }
 
 .service-explanation-seat{
-  display: none;
-  background-color: #FAFAFA;
+  background-color: #d0f0ba;
+  border-bottom: solid #e4c3f1 3px;
+  height:250px;
 }
 
 .service-explanation-customer{
-  display: none;
-  background-color: #FAFAFA;
+  background-color: #d1cdff;
+  border-bottom: solid #e4c3f1 3px;
+  height:250px;
 }
 
 .service-btn a {
@@ -216,11 +221,48 @@ input[type="email"] {
   height: 30px;
 }
 
-.new-user-registration-btn {
+/******************************************************** 
+　新規登録ページ
+********************************************************/
+.hero-items-new {
+  position: absolute;
+  top: 15%;
+  padding: 0 100px 0 50px;
+  width: calc(1440px - 150px);
+  text-align: center;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.service-btn-new {
+  background-color: #e4c3f1;
+  color:#FFFFFF;
+  padding: 30px 30px 10px 30px;
+  margin: 60px 50px 60px 60px ;
+  border-radius: 10px;
+  width: 300px;
+  border: #c062ff solid 3px;
+}
+
+.new-user-registration {
   text-align: center;
   margin-top: 8px;
 }
-.new-user-registration-btn a{
+
+.new-user-registration a{
+  text-decoration: none;
+  color: #c062ff;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.new-user-session {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.new-user-session a{
   text-decoration: none;
   color: #c062ff;
   font-size: 20px;

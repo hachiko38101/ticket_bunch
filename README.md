@@ -17,9 +17,9 @@ has_many :Programs
 
 |Column             |Type        |Options                        |
 |-------------------|------------|-------------------------------|
-|nickname           |string      |null: false                    |
+|nickname           |string      |null: false,unique: true       |
 |email              |string      |unique: true,null: false       |
-|encrypted_password |string      |null: false                    |
+|encrypted_password |string      |null: false,unique: true       |
 
 
 ### Association

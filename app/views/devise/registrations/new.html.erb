@@ -2,16 +2,17 @@
 <div class="index-main">
   <div class="hero">
     <%= image_tag "top_img.jpg", class:"hero-image" %>
-    <div class="hero-items">
+    <div class="hero-items-new">
       <div class="hero-text__main">新規登録</div>
       <div class="service-btn-new">
         <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="field">
-            <%= f.label :nickname %> <br />
-            <%= f.text_field :nickname, autofocus: true, maxlength: "6" %>
+            <%= f.label :nickname %> <br /><em>(12文字以下)</em><br />
+            <%= f.text_field :nickname, autofocus: true, maxlength: "12" %>
           </div>
+          
           <div class="field">
             <%= f.label :email %><br />
             <%= f.email_field :email %>
