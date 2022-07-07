@@ -1,6 +1,9 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
+    if user_signed_in?
+      user_top
+    end
     @user = current_user
   end
 
@@ -8,8 +11,7 @@ class TeamsController < ApplicationController
     @user = current_user
     @team = Team.new
     if Team.exists?(name: @user.nickname)
-      my_team = Team.where(name: @user.nickname)
-      redirect_to team_path(my_team.ids)
+      user_top
     end
   end
 
@@ -23,11 +25,20 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @message = Message.new
+    @team = Team.find(params[:id])
+    @messages = @team.messages.order(created_at: "DESC").limit(5)
   end
 
 private
 
   def team_params
-    params.require(:team).permit(:name)
+    params.require(:team).permit(:name).merge(user_id: current_user.id)
   end
+
+  def user_top
+    my_team = Team.where(name: current_user.nickname)
+    redirect_to team_path(my_team.ids)
+  end
+
 end

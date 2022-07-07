@@ -268,3 +268,61 @@ input[type="email"] {
   font-size: 20px;
   font-weight: 200;
 }
+/******************************************************** 
+　チームトップページ
+********************************************************/
+.top-side-bar{
+  position:absolute;
+  top:0%;
+  width:270px;
+  height:671px;
+}
+
+.side-bar-menus{
+  width:270px;
+  height:200px;
+  background-color: #535353;
+  color:white;
+}
+
+.side-bar-menu{
+  padding: 10px 0 0 10px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.side-bar-chat{
+  width:270px;
+  height:471px;
+  background-color: #dbdbdb;
+}
+
+.chat-form{
+  text-align: right;
+  margin-right: 5px;
+}
+
+.chat-message{
+  margin-top: 10px;
+
+}
+
+.chat-submit{
+  margin-top: 5px;
+}
+
+.message-user{
+  font-size: 18px;
+}
+
+.message-content{
+  font-size: 15px;
+}
+
+.message-date{
+  font-size: 10px;
+}
+
+.message{
+  margin-bottom: 15px;
+}

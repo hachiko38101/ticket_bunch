@@ -7,10 +7,10 @@
   </h1>
   <ul class="nav-lists">
     <% if user_signed_in?%>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-lists__list" %></li>
-      <li><%= link_to current_user.nickname, destroy_user_session_path, class: "nav-lists__list" %></li>
       <%#↓チーム名は現在作業中のチーム名にする%>
       <li><%= link_to 'チーム名', destroy_user_session_path, class: "nav-lists__list" %></li>
+      <li><%= link_to current_user.nickname, destroy_user_session_path, class: "nav-lists__list" %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-lists__list" %></li>
     <% else %>
       <li><%= link_to 'ログイン', new_user_session_path, class: "nav-lists__list" %></li>
       <li><%= link_to '新規登録', new_user_registration_path, class: "nav-lists__list" %></li>

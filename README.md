@@ -83,3 +83,16 @@ has_many :reserves
 ### Association
 belongs_to program
 belongs_to customer
+
+## Messages
+
+|Column    |Type       |Options                        |
+|----------|-----------|-------------------------------|
+|message   |text       |null: false                    |
+|user      |references |foreign_key: true              |
+|team      |references |foreign_key: true              |
+
+
+### Association
+belongs_to user
+belongs_to team

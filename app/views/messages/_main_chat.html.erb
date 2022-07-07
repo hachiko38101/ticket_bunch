@@ -1,0 +1,11 @@
+<div class="side-bar-chat">
+<%= form_with model: [@team, @message], method: :post, class: 'chat-form', local: true do |f| %>
+  <div class="chat-input">
+    <%= f.text_field :message, class: 'chat-message', placeholder: 'テキストを入力してください' %>
+  </div>
+    <%= f.submit '送信', class: 'chat-submit', data: {confirm: "送信しますか？"}  %>
+  <% end %>
+  <div class="chat-main">
+    <%= render partial: 'shared/message', collection: @messages%>
+  </div>
+</div>
