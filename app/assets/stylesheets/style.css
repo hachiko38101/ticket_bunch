@@ -304,7 +304,6 @@ input[type="email"] {
 
 .chat-message{
   margin-top: 10px;
-
 }
 
 .chat-submit{
@@ -325,4 +324,19 @@ input[type="email"] {
 
 .message{
   margin-bottom: 15px;
+  margin-left:5px;
+  overflow: scroll;
 }
+
+.top-main{
+  position: absolute;
+  left: 20%;
+  top: 2%;
+  color:#2b2b2b
+}
+
+.menu-top-content{
+  font-size: 50px;
+}
+
+.menu-

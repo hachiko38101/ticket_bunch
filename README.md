@@ -57,19 +57,18 @@ has_many :reserves
 
 ## Programs
 
-|Column      |Type       |Options                        |
-|------------|-----------|-------------------------------|
-|name        |string     |null: false                    |
-|date        |date       |null: false                    |
-|number      |integer    |                               |
-|ticket_rank |string     |                               |
-|place       |string     |null: false                    |
-|team        |references |null: false, foreign_key: true |
+|Column         |Type       |Options                        |
+|---------------|-----------|-------------------------------|
+|name           |string     |null: false                    |
+|number         |integer    |                               |
+|place          |string     |null: false                    |
+|team           |references |null: false, foreign_key: true |
 
 
 ### Association
 belongs_to :team
 has_many :reserves
+has_many :schedules
 
 ## Reserves
 
@@ -95,4 +94,17 @@ belongs_to customer
 
 ### Association
 belongs_to user
+belongs_to team
+
+## Schedules
+
+|Column          |Type       |Options                        |
+|----------------|-----------|-------------------------------|
+|date            |date       |null: false                    |
+|start_time      |time       |null: false                    |
+|ticket_number   |integer    |null: false                    |
+|program         |references |foreign_key: true              |
+
+
+### Association
 belongs_to team

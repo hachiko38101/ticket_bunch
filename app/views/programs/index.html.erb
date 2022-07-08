@@ -1,0 +1,30 @@
+<%= render "shared/header"%>
+<div class="index-main">
+  <div class="hero">
+    <%= image_tag "top_img.jpg", class:"hero-image" %>
+      <div class="top-side-bar">
+        <ul class="side-bar-menus">
+          <li class="side-bar-menu">公演管理</li>
+          <li class="side-bar-menu">予約管理</li>
+          <li class="side-bar-menu">チケット管理</li>
+          <li class="side-bar-menu">顧客管理</li>
+        </ul>
+        <%= render "messages/main_chat"%>
+      </div>
+      <div class="top-main">
+        <div class="menu-top-content">公演管理</div>
+        <ul class="menu-show-lists">
+          <li class="menu-show-list">新規公演登録</li>
+          <li class="menu-show-list">公演編集/削除</li>
+        </ul>
+        <div class="program-lists">
+          <% @programs.each do |program| %>
+            <div class="program-list">
+              <p><%= program.name %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
+<%= render "shared/footer"%>
