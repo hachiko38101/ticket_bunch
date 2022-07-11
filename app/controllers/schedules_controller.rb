@@ -1,12 +1,22 @@
 class SchedulesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :authenticate_user!
+  before_action :set_program
+  before_action :set_team, only: [:new]
+  before_action :set_message, only: [:new]
+
+  def new
+    @form = Form::ProgramCollection.new
+  end
+
+
   def create
-    @program = Program.find(params[:program_id])
-    @schedule = Schedule.new(schedule_params)
-    if @schedule.save
-      redirect_to edit_program_path(params[:program_id])
+    @form = Form::ScheduleCollection.new(schedule_collection_params)
+    my_team = Team.where(name: current_user.nickname)
+    if @form.save
+      redirect_to team_path(my_team.ids), notice: "公演を登録しました"
     else
-      render "programs/edit"
+      flash.now[:alert] = "公演登録に失敗しました"
+      render :new
     end
 
   end
@@ -23,8 +33,21 @@ class SchedulesController < ApplicationController
 
   private 
   
-  def schedule_params
-    params.require(:schedule).permit(:date, :start_time).merge(program_id: params[:program_id])
+  def schedule_collection_params
+    params.require(:form_schedule_collection).permit(schedules_attributes: [:date, :start_time]).merge(program_id: params[:program_id])
+  end
+
+  def set_program
+    @program = Program.find(params[:program_id])
+  end
+
+  def set_team
+    @team = Team.find(params[:team_id])
+  end
+
+  def set_message
+    @message = Message.new
+    @messages = @team.messages.order(created_at: "DESC").limit(5)
   end
 
 end

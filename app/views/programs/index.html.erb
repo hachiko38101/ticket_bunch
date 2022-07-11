@@ -2,20 +2,12 @@
 <div class="index-main">
   <div class="hero">
     <%= image_tag "top_img.jpg", class:"hero-image" %>
-      <div class="top-side-bar">
-        <ul class="side-bar-menus">
-          <li class="side-bar-menu">公演管理</li>
-          <li class="side-bar-menu">予約管理</li>
-          <li class="side-bar-menu">チケット管理</li>
-          <li class="side-bar-menu">顧客管理</li>
-        </ul>
-        <%= render "messages/main_chat"%>
-      </div>
+      <%= render "shared/side_bar"%>
       <div class="top-main">
         <div class="menu-top-content">公演管理</div>
         <ul class="menu-show-lists">
-          <li class="menu-show-list">新規公演登録</li>
-          <li class="menu-show-list">公演編集/削除</li>
+          <li class="menu-show-list"><%= link_to '公演管理', new_team_program_path(@team) %></li>
+          <li class="menu-show-list">編集/削除</li>
         </ul>
         <div class="program-lists">
           <% @programs.each do |program| %>

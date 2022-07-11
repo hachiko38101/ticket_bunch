@@ -1,0 +1,30 @@
+<%= render "shared/header"%>
+<div class="index-main">
+  <div class="hero">
+    <%= image_tag "top_img.jpg", class:"hero-image" %>
+      <%= render "shared/side_bar"%>
+      <div class="top-main">
+        <%= form_with model: @form, url: team_program_schedules_path, method: :post, local: true do |f| %>
+          <table class="new-schedule-table">
+            <thead>
+              <th class="nst-explain">材料・調味料</th>
+              <th class="nst-explain">分量</th>
+            </thead>
+            <tbody>
+              <%= f.fields_for :schedules do |schedule| %>
+                <tr>
+                  <td class="nst-form"><%= ingredient.date :date %></td>
+                  <td class="nst-form"><%= ingredient.time :start_time %></td>
+                  <td class="nst-delete-btn"><input type="button" value="削除" onclick="deleteRow(this)"></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <input type="button" value="日程を追加" onclick="addRow('ingredient-table')" class="btn btn-sm btn-color py-0 my-3 ml-2">
+          <%= f.submit '公演日程登録', class:'nst-add-btn' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer"%>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :teams, only: [:index, :new, :create, :show] do
     resources :messages, only: [:index, :create]
     resources :programs, only: [:index, :create, :new ,:edit, :update] do
-      resources :schedules, only: [:create, :update]
+      resources :schedules, only: [:new, :create, :destroy, :update]
     end
   end
 end

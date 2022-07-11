@@ -8,7 +8,7 @@
   <ul class="nav-lists">
     <% if user_signed_in?%>
       <%#↓チーム名は現在作業中のチーム名にする%>
-      <% if @team.name = current_user.nickname %>
+      <% if @team.name == current_user.nickname %>
         <li><%= link_to 'マイチーム', "#", class: "nav-lists__list" %></li>
       <% else %>
         <li><%= link_to 'チーム名', "#", class: "nav-lists__list" %></li>

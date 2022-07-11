@@ -285,6 +285,12 @@ input[type="email"] {
   color:white;
 }
 
+.side-bar-menus a{
+  text-decoration: none;
+  background-color: #535353;
+  color:white;
+}
+
 .side-bar-menu{
   padding: 10px 0 0 10px;
   height: 40px;
@@ -322,10 +328,14 @@ input[type="email"] {
   font-size: 10px;
 }
 
+.chat-main{
+  overflow: scroll;
+  height: 390px;
+}
+
 .message{
   margin-bottom: 15px;
-  margin-left:5px;
-  overflow: scroll;
+  margin-left: 5px;
 }
 
 .top-main{
@@ -337,4 +347,58 @@ input[type="email"] {
 
 .menu-top-content{
   font-size: 50px;
+}
+
+/******************************************************** 
+　公演管理
+********************************************************/
+.menu-show-list{
+  background-color: #e4c3f1;
+  color: #535353;
+  border-radius: 10px;
+  margin:10px;
+  padding: 5px 10px;
+  font-size:20px;
+}
+
+.menu-show-lists{
+  display: flex;
+}
+
+.date-lists{
+  display: flex;
+}
+
+.date-input{
+  height:26px;
+  font-size: 15px;
+}
+
+.date-time-input{
+  height:30px;
+  font-size: 15px;
+}
+
+.program-submit-box{
+  margin-top: 15px;
+}
+
+.schedule-add{
+  display: flex;
+}
+
+.add-date{
+  margin: 5px 10px 5px 0;
+  background-color: #535353;
+  color: #FFFFFF;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+
+.add-10dates{
+  margin: 5px 10px 5px 0;
+  background-color: #535353;
+  color: #FFFFFF;
+  padding: 3px 5px;
+  border-radius: 3px;
 }
