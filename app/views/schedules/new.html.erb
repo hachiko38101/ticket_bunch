@@ -4,25 +4,32 @@
     <%= image_tag "top_img.jpg", class:"hero-image" %>
       <%= render "shared/side_bar"%>
       <div class="top-main">
-        <%= form_with model: @form, url: team_program_schedules_path, method: :post, local: true do |f| %>
-          <table class="new-schedule-table">
-            <thead>
-              <th class="nst-explain">材料・調味料</th>
-              <th class="nst-explain">分量</th>
-            </thead>
-            <tbody>
-              <%= f.fields_for :schedules do |schedule| %>
-                <tr>
-                  <td class="nst-form"><%= ingredient.date :date %></td>
-                  <td class="nst-form"><%= ingredient.time :start_time %></td>
-                  <td class="nst-delete-btn"><input type="button" value="削除" onclick="deleteRow(this)"></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-          <input type="button" value="日程を追加" onclick="addRow('ingredient-table')" class="btn btn-sm btn-color py-0 my-3 ml-2">
-          <%= f.submit '公演日程登録', class:'nst-add-btn' %>
+        <div class="schedule-program"><%= @program.name %></div>
+        <div class="schedule-lists" >
+        登録したい日付を選択し「公演日程追加」を押下してください
+        </div>
+        <%= form_with model: @schedule, url: team_program_schedules_path, method: :post, local: true do |f| %>
+          <div>
+              <%= f.date_field :date, class:"nst-form" %>
+              <%= f.time_field :start_time, class:"nst-form" %>
+              <%= f.text_field :ticket_number, class:"nst-form", placeholder: "チケット枚数を入力してください" %>
+          </div>
+        <%= f.submit '公演日程追加', class:'nst-add-btn' %>
         <% end %>
+        <div class="schedule-lists" >
+        登録済み日時一覧
+        </div>
+        <% @schedules.each do |schedule| %>
+          <div class="schedule-list">
+            <div class="schedule-date"><%= schedule.date.strftime("%m月%d日") %></div>
+            <div class="schedule-time"><%= schedule.start_time.strftime("%R") %></div>
+            <div class="li-ticket-number"><%= schedule.ticket_number %>枚</div>
+            <div class="schedule-list-delete"><%= link_to '削除', "/teams/#{@team.id}/programs/#{@program.id}/schedules", method: :delete%></div>
+          </div>
+        <% end %>
+        <div class="edit-fin">
+          <%= link_to '登録完了', "/teams/#{@team.id}/programs", data: {confirm: "公演管理メニューへ戻ります"} %>
+        </div>
       </div>
     </div>
   </div>

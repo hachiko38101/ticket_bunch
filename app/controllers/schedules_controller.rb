@@ -1,40 +1,42 @@
 class SchedulesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_program
-  before_action :set_team, only: [:new]
-  before_action :set_message, only: [:new]
+  before_action :set_program, only: [:new, :create, :show, :destroy]
+  before_action :set_team, only: [:new, :create, :show]
+  before_action :set_message, only: [:new, :create, :show]
+  before_action :set_schedule, only: [:show, :destroy]
+  before_action :set_schedules, only: [:new, :create, :show]
 
   def new
-    @form = Form::ProgramCollection.new
+    @schedule = Schedule.new
   end
 
 
   def create
-    @form = Form::ScheduleCollection.new(schedule_collection_params)
+    @schedule = Schedule.new(schedule_params)
     my_team = Team.where(name: current_user.nickname)
-    if @form.save
-      redirect_to team_path(my_team.ids), notice: "公演を登録しました"
+    if @schedule.save
+      redirect_to new_team_program_schedule_path
     else
-      flash.now[:alert] = "公演登録に失敗しました"
       render :new
     end
 
   end
 
+  def show
+  end
+
   def destroy
-    @program = Program.find(params[:program_id])
-    @schedule = Schedule.find(params[:id])
     if @schedule.destroy
-      redirect_to edit_program_path(params[:program_id])
+      redirect_to new_team_program_schedule_path
     else
-      render "programs/edit"
+      render :edit
     end
   end
 
   private 
   
-  def schedule_collection_params
-    params.require(:form_schedule_collection).permit(schedules_attributes: [:date, :start_time]).merge(program_id: params[:program_id])
+  def schedule_params
+    params.require(:schedule).permit(:date, :start_time, :ticket_number).merge(program_id: params[:program_id])
   end
 
   def set_program
@@ -50,4 +52,11 @@ class SchedulesController < ApplicationController
     @messages = @team.messages.order(created_at: "DESC").limit(5)
   end
 
+  def set_schedule
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def set_schedules
+    @schedules = @program.schedules.order(date: "ASC", start_time: "ASC")
+  end
 end

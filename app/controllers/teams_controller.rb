@@ -33,7 +33,7 @@ class TeamsController < ApplicationController
 private
 
   def team_params
-    params.require(:team).permit(:name).merge(user_id: current_user.id)
+    params.require(:team).permit(:name, :user_id)
   end
 
   def user_top

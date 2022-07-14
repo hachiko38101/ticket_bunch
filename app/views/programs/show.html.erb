@@ -1,0 +1,27 @@
+<%= render "shared/header"%>
+<div class="index-main">
+  <div class="hero">
+    <%= image_tag "top_img.jpg", class:"hero-image" %>
+      <%= render "shared/side_bar"%>
+      <div class="top-main">
+        <div class="schedule-program">
+          <%= @program.name %>
+          <span class="schedule-edit"><%= link_to '編集', "/teams/#{@team.id}/programs/#{@program.id}/edit" %></span>
+          <span class="schedule-edit"><%= link_to '公演を削除', "/teams/#{@team.id}/programs/#{@program.id}",method: :delete, data: {confirm: "本当に公演情報を全て削除しますか"} %></span>
+        </div>
+        <div class="schedule-lists" >
+          登録済み日時
+          <span class="schedule-edit"><%= link_to '編集', "/teams/#{@team.id}/programs/#{@program.id}/schedules/new" %></span>
+        </div>
+        <% @schedules.each do |schedule| %>
+          <div class="schedule-list">
+            <div class="schedule-date"><%= schedule.date.strftime("%m月%d日") %></div>
+            <div class="schedule-time"><%= schedule.start_time.strftime("%R") %></div>
+            <div class="li-ticket-number"><%= schedule.ticket_number %>枚</div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer"%>

@@ -6,6 +6,7 @@
       <div class="service-btn-new">
           <%= form_with model: @team, local: true do |f|%>
             <input name="team[name]" type="hidden" value=<%= current_user.nickname %>>
+            <input name="team[user_id]" type="hidden" value=<%= current_user.id %>>
             <%= f.submit "マイページへ移動"%>
           <% end %>
       </div>

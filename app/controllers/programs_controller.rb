@@ -1,8 +1,8 @@
 class ProgramsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_program, only: [:show, :edit, :update, :destroy]
-  before_action :set_team, only: [:index, :new, :edit, :create]
-  before_action :set_message, only: [:index, :new, :show, :edit, :create]
+  before_action :set_team, only: [:index, :new, :show, :update, :edit, :create]
+  before_action :set_message, only: [:index, :new, :show, :update, :edit, :create]
 
   def index
     @programs = @team.programs.order(created_at: "DESC").limit(15)
@@ -10,7 +10,6 @@ class ProgramsController < ApplicationController
 
   def new
     @program = Program.new
-    #1.times { @program.schedules.build }
   end 
 
   def create
@@ -23,12 +22,15 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-    @schedule = Schedule.new
+  end
+
+  def show
+    @schedules = @program.schedules.order(created_at: "ASC")
   end
 
   def update
     if @program.update(program_update_params)
-      redirect_to team_path(params[:team_id])
+      redirect_to "/teams/#{@program.team.id}/programs"
     else
       render "edit"
     end
@@ -36,7 +38,7 @@ class ProgramsController < ApplicationController
 
   def destroy
     if @program.destroy
-      redirect_to team_path(params[:team_id])
+      redirect_to "/teams/#{@program.team.id}/programs"
     else
       render "edit"
     end

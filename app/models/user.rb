@@ -6,8 +6,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, uniqueness: true
 
-  has_many :teams, through: :user_teams  
-  has_many :user_teams
+  has_one :team
   has_many :messages
 
 end

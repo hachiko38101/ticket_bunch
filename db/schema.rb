@@ -43,20 +43,10 @@ ActiveRecord::Schema.define(version: 2022_07_08_014534) do
 
   create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_teams_on_user_id"
-  end
-
-  create_table "user_teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "team_id", null: false
-    t.bigint "user_id", null: false
-    t.integer "level_id", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["team_id"], name: "index_user_teams_on_team_id"
-    t.index ["user_id"], name: "index_user_teams_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,6 +65,5 @@ ActiveRecord::Schema.define(version: 2022_07_08_014534) do
   add_foreign_key "messages", "teams"
   add_foreign_key "messages", "users"
   add_foreign_key "programs", "teams"
-  add_foreign_key "user_teams", "teams"
-  add_foreign_key "user_teams", "users"
+  add_foreign_key "teams", "users"
 end
