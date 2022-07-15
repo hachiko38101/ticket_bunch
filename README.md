@@ -51,11 +51,11 @@ Ggazo URL : https://gyazo.com/c8d7594918b042ebd64c3d06fd3b9e7a
 ![picture 1](images/df58c69de8f09ceb699b07ddb0f427ec5df624ff074d81f422ea817ad11e7ba1.png)  
 ## 開発環境
 ・HTML  
-・CSS 
+・CSS  
 ・Ruby  
-・Ruby on Rails 
+・Ruby on Rails  
 ・JavaScript  
-・SQL 
+・SQL  
 ・GitHub  
 ・Visual Studio Code  
 ## ローカルでの動作方法
