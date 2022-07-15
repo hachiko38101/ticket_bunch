@@ -5,7 +5,7 @@ class ProgramsController < ApplicationController
   before_action :set_message, only: [:index, :new, :show, :update, :edit, :create]
 
   def index
-    @programs = @team.programs.order(created_at: "DESC").limit(15)
+    @programs = @team.programs.order(created_at: "DESC")
   end
 
   def new

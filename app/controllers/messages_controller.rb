@@ -8,7 +8,6 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to team_path(params[:team_id])
     else
-      @messages = @team.messages.includes(:user)
       render :index
     end
   end

@@ -1,0 +1,46 @@
+<%= render "shared/header"%>
+<div class="index-main">
+  <div class="hero">
+    <%= image_tag "top_img.jpg", class:"hero-image" %>
+      <%= render "shared/side_bar"%>
+      <div class="top-main">
+        <div class="customer-name">
+          <%= @customer.name %>
+          <span class="schedule-edit"><%= link_to '編集', "/teams/#{@team.id}/customers/#{@customer.id}/edit" %></span>
+          <span class="schedule-edit"><%= link_to '顧客を削除', "/teams/#{@team.id}/customers/#{@customer.id}",method: :delete, data: {confirm: "本当に顧客を削除しますか"} %></span>
+        </div>
+        <div class="customer-info-lists">
+          <div class="customer-list">
+            <div class="customer-list-title">顧客名</div>
+            <div class="customer-info-list"><%=  @customer.name %></div>
+          </div>
+          <div class="customer-list">
+            <div class="customer-list-title">顧客名カナ</div>
+            <div class="customer-info-list"><%= @customer.name_kana %></div>
+          </div>
+          <div class="customer-list">
+            <div class="customer-list-title">住所</div>
+            <div class="customer-info-list"><%= @customer.address %></div>
+          </div>
+          <div class="customer-list">
+            <div class="customer-list-title">電話番号</div>
+            <div class="customer-info-list"><%= @customer.phone_number %></div>
+          </div>
+          <div class="customer-list">
+            <div class="customer-list-title">FAX番号</div>
+            <div class="customer-info-list"><%= @customer.fax_number %></div>
+          </div>
+          <div class="customer-list">
+            <div class="customer-list-title">e-mail</div>
+            <div class="customer-info-list"><%= @customer.email %></div>
+          </div>
+          <div class="customer-list">
+            <div class="customer-list-title">補足</div>
+            <div class="customer-info-list"><%= @customer.explanation %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer"%>

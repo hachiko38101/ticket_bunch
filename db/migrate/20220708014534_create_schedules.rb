@@ -4,7 +4,7 @@ class CreateSchedules < ActiveRecord::Migration[6.0]
       t.date :date, null: false
       t.time :start_time, null: false
       t.integer :ticket_number
-      t.references :program, null:false
+      t.references :program, null:false, foreign_key: true
       t.timestamps
     end
   end

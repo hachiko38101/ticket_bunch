@@ -1,0 +1,33 @@
+<%= render "shared/header"%>
+<div class="index-main">
+  <div class="hero">
+    <%= image_tag "top_img.jpg", class:"hero-image" %>
+      <%= render "shared/side_bar"%>
+      <div class="top-main">
+        <div class="menu-top-content">顧客管理</div>
+        <ul class="menu-show-lists">
+          <li class="menu-show-list"><%= link_to '新規顧客登録', new_team_customer_path(@team) %></li>
+        </ul>
+        <div class="program-lists">
+          <p class="lists-title">顧客 リスト</p>
+          <div class="customer-info-lists">
+            <div class="customer-list">
+              <div class="customer-list-title-top"><span class="list-top">顧客名</span></div>
+              <div class="customer-info-list-top"><span class="list-top">補足</span></div>
+              <div class="customer-list-btn-top"><span class="list-top">詳細</span></div>
+              <div class="customer-list-btn-top"><span class="list-top">削除</span></div>
+            </div>
+            <% @customers.each do |customer| %>
+              <div class="customer-list">
+                <div class="customer-list-title"><%= customer.name %></div>
+                <div class="customer-info-list"><%= customer.explanation %></div>
+                <div class="customer-list-btn"><%= link_to '詳細', "/teams/#{@team.id}/customers/#{customer.id}" %></div>
+                <div class="customer-list-btn"><%= link_to '削除', "/teams/#{@team.id}/customers/#{customer.id}", method: :delete %></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<%= render "shared/footer"%>

@@ -468,3 +468,83 @@ input[type="email"] {
   font-size: 18px;
   padding:3px 5px;
 }
+
+
+/******************************************************** 
+　顧客管理
+********************************************************/
+.customer-name{
+  font-size: 50px;
+}
+
+.customer-info-lists{
+  border: #535353 solid 1px;
+  margin: 30px 0 0 15px;
+}
+
+.customer-list{
+  display: flex;
+}
+
+.customer-list-title{
+  font-size: 18px;
+  border: #535353 solid 1px;
+  width: 120px;
+  padding: 3px 10px;
+  background-color: #f4f4f4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.customer-info-list{
+  font-size: 18px;
+  border: #535353 solid 1px;
+  width: 300px;
+  padding: 3px 10px;
+  background-color: #f4f4f4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.customer-list-btn{
+  font-size: 18px;
+  border: #535353 solid 1px;
+  width: 50px;
+  padding: 3px 10px;
+  background-color: #f4f4f4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.customer-list-title-top{
+  font-size: 21px;
+  color: #f4f4f4;
+  font-weight: 300;
+  border: #535353 solid 1px;
+  width: 120px;
+  padding: 3px 10px;
+  background-color: #959393;
+}
+
+.customer-info-list-top{
+  font-size: 21px;
+  color: #f4f4f4;
+  font-weight: 300;
+  border: #535353 solid 1px;
+  width: 300px;
+  padding: 3px 10px;
+  background-color: #959393;
+}
+
+.customer-list-btn-top{
+  font-size: 21px;
+  color: #f4f4f4;
+  font-weight: 300;
+  border: #535353 solid 1px;
+  width: 50px;
+  padding: 3px 10px;
+  background-color: #959393;
+}
