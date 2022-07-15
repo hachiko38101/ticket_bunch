@@ -458,3 +458,13 @@ input[type="email"] {
   border-bottom: #535353 solid 3px;
   margin-bottom: 30px;
 }
+
+.edit-fin a{
+  text-decoration: none;
+  background-color: #b9b9b9;
+  border: #535353 solid 1px;
+  border-radius: 2px;
+  color: #FAFAFA;
+  font-size: 18px;
+  padding:3px 5px;
+}

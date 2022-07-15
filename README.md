@@ -1,110 +1,69 @@
 # README
 
-## Teams
-
-|Column |Type        |Options                        |
-|-------|------------|-------------------------------|
-|name   |string      |null: false                    |
-
-
-
-### Association
-has_many :Customers
-has_many :User_teams
-has_many :Programs
-
-## Users
-
-|Column             |Type        |Options                        |
-|-------------------|------------|-------------------------------|
-|nickname           |string      |null: false,unique: true       |
-|email              |string      |unique: true,null: false       |
-|encrypted_password |string      |null: false,unique: true       |
-
-
-### Association
-has_many :user_teams
-
-## User_teams
-
-|Column             |Type       |Options                        |
-|-------------------|-----------|-------------------------------|
-|user               |reference  |null: false, foreign_key: true |
-|team               |reference  |null: false, foreign_key: true |
-|level_id           |integer    |null: false                    |
-
-### Association
-belongs_to :user
-belongs_to :team
-
-
-## Customers
-
-|Column              |Type       |Options                        |
-|--------------------|-----------|-------------------------------|
-|name                |string     |null: false                    |
-|name_kana           |string     |null: false                    |
-|address             |string     |                               |
-|phone_number        |string     |                               |
-|fax_number          |string     |                               |
-|explanation         |text       |                               |
-|team                |reference  |null: false, foreign_key: true |
-
-
-### Association
-belongs_to :team
-has_many :reserves
-
-## Programs
-
-|Column         |Type       |Options                        |
-|---------------|-----------|-------------------------------|
-|name           |string     |null: false                    |
-|number         |integer    |                               |
-|place          |string     |null: false                    |
-|team           |references |null: false, foreign_key: true |
-
-
-### Association
-belongs_to :team
-has_many :reserves
-has_many :schedules
-
-## Reserves
-
-|Column    |Type       |Options                        |
-|----------|-----------|-------------------------------|
-|number    |integer    |null: false,unique: true       |
-|program   |references |foreign_key: true              |
-|customer  |references |foreign_key: true              |
-
-
-### Association
-belongs_to program
-belongs_to customer
-
-## Messages
-
-|Column    |Type       |Options                        |
-|----------|-----------|-------------------------------|
-|message   |text       |null: false                    |
-|user      |references |foreign_key: true              |
-|team      |references |foreign_key: true              |
-
-
-### Association
-belongs_to user
-belongs_to team
-
-## Schedules
-
-|Column          |Type       |Options                        |
-|----------------|-----------|-------------------------------|
-|date            |date       |null: false                    |
-|start_time      |time       |null: false                    |
-|ticket_number   |integer    |null: false                    |
-|program         |references |foreign_key: true              |
-
-
-### Association
-belongs_to team
+## アプリケーション名
+Ticket Bunch
+## アプリケーション概要
+演劇をはじめとする公演のチケット予約管理を行うことができる
+## URL
+https://ticket-bunch.herokuapp.com/teams/4/programs/4/schedules/new
+## テスト用アカウント
+ログイン用メールアドレス : test1@email
+ログイン用パスワード : password1
+Basic認証ID ; katayamah
+Basic認証Pass ; 12538101
+## 利用方法	このアプリケーションの利用方法を記載。説明が長い場合は、箇条書きでリスト化すること。
+#### 公演情報登録
+1.トップページのヘッダーから新規登録を行う
+2.「マイページへ移動」をクリック(チーム作成が行われる)
+3.マイページの左サイドメニューから「公演管理」をクリック
+4.「新規公演登録」をクリック
+5.「公演名」を入力し、「登録」をクリック
+6.「公演日」「開始時刻」を選択し、「チケット枚数」を入力して「公演日程追加」をクリック
+7.全ての日程を登録するまで6の作業を繰り返し、登録が完了したら「登録完了」をクリック
+#### タスク報告
+1.マイページの左サイドメニューのフォームに行ったタスクを入力し、「送信」をクリック
+  ※今後、複数ユーザーがチームに所属できる機能を実装予定としているため、それを見据えての機能である
+## アプリケーションを作成した背景
+自身が学生時代に演劇活動を行っていた際、チケット予約管理は紙ベースやノートアプリで行っていたが、管理に非常に工数がかかっていた。そして、現在知人やその周りが似た問題を抱えていることが判明した。課題を分析した結果、最も工数がかかるのは「予約をマージする表を作成すること」であると仮説を立てた。さらにヒアリングを重ね、予約が100件以上ある組織でも紙での管理を行っていることが判明したことから、多くの方が同様の問題を抱えていると推測し、予約の一括管理ができるアプリケーションを開発することにした。
+## 洗い出した要件
+要件を定義したシート：https://docs.google.com/spreadsheets/d/15VOcewK1n0IdZbj-5eWtZxh0SI9guDkI2WHQWpgwbt0/edit?usp=sharing
+## 実装した機能についての画像やGIFおよびその説明※	実装した機能について、それぞれどのような特徴があるのかを列挙する形で記載。画像はGyazoで、GIFはGyazoGIFで撮影すること。
+#### 公演管理画面
+Gyazo URL : https://gyazo.com/28d6cec903d071f8d3c0230520960b6f
+・「新規公演登録」ができる
+・登録済みの公演が一覧で見ることができ、それぞれの公演の詳細ページに遷移することができる
+※ サイドメニュー(タスク報告フォームを含む)はどの画面からでも利用できる
+#### 公演詳細画面
+Gyazo URL : https://gyazo.com/14cdd7d6a85f50b2a25fd34ef21a0090
+・「公演名」「日時」の編集をそれぞれ行うことができる
+・公演情報を全て削除することもできる(削除しようとするとアラートが表示される)
+#### 日時登録画面
+Ggazo URL : https://gyazo.com/c8d7594918b042ebd64c3d06fd3b9e7a
+・公演の日程を追加することができる
+・公演の日程を個別に削除することができる
+## 実装予定の機能	洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
+現在、予約登録機能を実装中。
+今後は「配席機能」や「顧客登録機能」を追加するほか、複数ユーザーがチームに所属できる機能を実装予定。
+また、タスク報告機能についてはJavaScriptを使って非同期通信で投稿が確認できるように変更予定。
+## データベース設計	ER図を添付。 
+![picture 2](images/5ee7dd60088e5380ae502ca6c256f484b4de97e19cc0aa21bce4ff19e7047fb5.png)  
+## 画面遷移図	画面遷移図を添付。
+![picture 1](images/df58c69de8f09ceb699b07ddb0f427ec5df624ff074d81f422ea817ad11e7ba1.png)  
+## 開発環境	使用した言語・サービスを記載。
+・HTML
+・CSS
+・Ruby
+・Ruby on Rails
+・JavaScript
+・SQL
+・GitHub
+・Visual Studio Code
+## ローカルでの動作方法
+% git clone https://github.com/hachiko38101/ticket_bunch
+% cd ticket_bunch
+% bundle install
+% yarn install 
+## 工夫したポイント
+アプリケーションの作成前にしっかりとユーザーのペルソナや要件定義を行い、方向性を定めていたことから、作成し始めてから迷うことが少なく進めることができている。
+プログラミングスクールで習ったことだけでなく、搭載したい機能があれば積極的に調べ、搭載を試みている。
+搭載が難しいと思われる機能も、何度も方向性を変えてチャレンジすることで搭載をかなえることができた。
