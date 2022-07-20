@@ -512,6 +512,14 @@ input[type="email"] {
   width: 300px;
   padding: 3px 10px;
   background-color: #f4f4f4;
+}
+
+.customer-list-explanation{
+  font-size: 18px;
+  border: #535353 solid 1px;
+  width: 300px;
+  padding: 3px 10px;
+  background-color: #f4f4f4;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
