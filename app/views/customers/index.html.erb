@@ -10,7 +10,7 @@
         </ul>
         <div class="program-lists">
           <p class="lists-title">顧客 リスト</p>
-          <div class="customer-info-lists">
+          <div class="info-lists">
             <div class="customer-list">
               <div class="customer-list-title-top"><span class="list-top">顧客名</span></div>
               <div class="customer-info-list-top"><span class="list-top">補足</span></div>
@@ -22,7 +22,7 @@
                 <div class="customer-list-title"><%= customer.name %></div>
                 <div class="customer-info-list"><%= customer.explanation %></div>
                 <div class="customer-list-btn"><%= link_to '詳細', "/teams/#{@team.id}/customers/#{customer.id}" %></div>
-                <div class="customer-list-btn"><%= link_to '削除', "/teams/#{@team.id}/customers/#{customer.id}", method: :delete %></div>
+                <div class="customer-list-btn"><%= link_to '削除', "/teams/#{@team.id}/customers/#{customer.id}", data: {confirm: "本当に顧客を削除しますか"}, method: :delete %></div>
               </div>
             <% end %>
           </div>
