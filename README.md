@@ -48,22 +48,30 @@ Basic認証Pass : 12538101
 要件を定義したシート：https://docs.google.com/spreadsheets/d/15VOcewK1n0IdZbj-5eWtZxh0SI9guDkI2WHQWpgwbt0/edit?usp=sharing
 ## 実装した機能についての画像やGIFおよびその説明
 #### 公演管理画面
-Gyazo URL : https://gyazo.com/28d6cec903d071f8d3c0230520960b6f  
+![公演管理](https://user-images.githubusercontent.com/105845809/179949154-b427e1aa-ef53-4ce7-bfa5-2fea9245daab.gif)
 ・「新規公演登録」ができる  
 ・登録済みの公演が一覧で見ることができ、それぞれの公演の詳細ページに遷移することができる  
 ※ サイドメニュー(タスク報告フォームを含む)はどの画面からでも利用できる  
-#### 公演詳細画面
-Gyazo URL : https://gyazo.com/14cdd7d6a85f50b2a25fd34ef21a0090  
+#### 公演登録画面
+![公演登録](https://user-images.githubusercontent.com/105845809/179949165-d33c4206-b6cd-4a1f-a25c-ecef6267774f.gif)
 ・「公演名」「日時」の編集をそれぞれ行うことができる  
 ・公演情報を全て削除することもできる(削除しようとするとアラートが表示される)  
-#### 日時登録画面
-Ggazo URL : https://gyazo.com/c8d7594918b042ebd64c3d06fd3b9e7a  
+#### スケジュール登録画面
+![スケジュール登録](https://user-images.githubusercontent.com/105845809/179949091-62ca19d5-ff91-4846-942c-4011e250eb80.gif)
 ・公演の日程を追加することができる  
 ・公演の日程を個別に削除することができる 
+#### 顧客管理画面
+![顧客管理](https://user-images.githubusercontent.com/105845809/179949140-dcb64ffd-df7e-4c62-864c-3841cfc893e7.gif)
+・顧客を一覧で見ることができる
+※ 顧客情報は顧客名・補足のみが表示され、「詳細」をクリックすることで顧客情報を全て見ることができる
+※ 枠に入りきらない情報は三点リーダーで省略される
+#### 顧客登録画面
+![顧客登録](https://user-images.githubusercontent.com/105845809/179949147-042a665b-bc80-47db-9fd5-7c36aa029ec7.gif)
+・顧客の登録をすることができる
 ## 実装予定の機能
 現在、予約登録機能を実装中。  
-今後は「配席機能」や「顧客登録機能」を追加するほか、複数ユーザーがチームに所属できる機能を実装予定。  
-また、タスク報告機能についてはJavaScriptを使って非同期通信で投稿が確認できるように変更予定。  
+今後は「配席機能」を追加するほか、複数ユーザーがチームに所属できる機能を実装予定。  
+また、タスク報告機能についてはJavaScriptを使って非同期通信で投稿ができるように変更予定。  
 ## データベース設計
 ![picture 2](images/5ee7dd60088e5380ae502ca6c256f484b4de97e19cc0aa21bce4ff19e7047fb5.png) 
 ## 画面遷移図
