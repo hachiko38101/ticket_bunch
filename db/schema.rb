@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_091716) do
+ActiveRecord::Schema.define(version: 2022_07_21_184329) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2022_07_15_091716) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["team_id"], name: "index_programs_on_team_id"
+  end
+
+  create_table "reserves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "number"
+    t.bigint "program_id", null: false
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_reserves_on_customer_id"
+    t.index ["program_id"], name: "index_reserves_on_program_id"
   end
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -80,6 +90,8 @@ ActiveRecord::Schema.define(version: 2022_07_15_091716) do
   add_foreign_key "messages", "teams"
   add_foreign_key "messages", "users"
   add_foreign_key "programs", "teams"
+  add_foreign_key "reserves", "customers"
+  add_foreign_key "reserves", "programs"
   add_foreign_key "schedules", "programs"
   add_foreign_key "teams", "users"
 end

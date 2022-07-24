@@ -1,0 +1,20 @@
+<%= render "shared/header"%>
+<div class="index-main">
+  <div class="hero">
+    <%= image_tag "top_img.jpg", class:"hero-image" %>
+      <%= render "shared/side_bar"%>
+      <div class="top-main">
+        <div class="menu-top-content">予約管理</div>
+        <div class="program-lists">
+        <p class="lists-title">公演 リスト</p>
+          <% @programs.each do |program| %>
+            <div>
+              <span class="program-list"><%= program.name %></span>
+              <span class="program-delete"><%= link_to '予約登録', "#" %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
+<%= render "shared/footer"%>

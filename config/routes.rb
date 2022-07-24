@@ -7,5 +7,6 @@ Rails.application.routes.draw do
       resources :schedules, only: [:new, :create, :edit, :destroy, :update]
     end
     resources :customers
+    resources :reserves, only: [:index, :new]
   end
 end
