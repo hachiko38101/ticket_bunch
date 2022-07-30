@@ -10,7 +10,7 @@
           <% @programs.each do |program| %>
             <div>
               <span class="program-list"><%= program.name %></span>
-              <span class="program-delete"><%= link_to '予約登録', "#" %></span>
+              <span class="program-delete"><%= link_to '予約状況', new_team_reserve_path(program) %></span>
             </div>
           <% end %>
         </div>

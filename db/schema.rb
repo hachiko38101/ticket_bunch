@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 2022_07_21_184329) do
 
   create_table "reserves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "number"
-    t.bigint "program_id", null: false
+    t.bigint "schedule_id", null: false
     t.bigint "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_reserves_on_customer_id"
-    t.index ["program_id"], name: "index_reserves_on_program_id"
+    t.index ["schedule_id"], name: "index_reserves_on_schedule_id"
   end
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2022_07_21_184329) do
   add_foreign_key "messages", "users"
   add_foreign_key "programs", "teams"
   add_foreign_key "reserves", "customers"
-  add_foreign_key "reserves", "programs"
+  add_foreign_key "reserves", "schedules"
   add_foreign_key "schedules", "programs"
   add_foreign_key "teams", "users"
 end
