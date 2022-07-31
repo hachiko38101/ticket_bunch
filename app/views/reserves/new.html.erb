@@ -7,28 +7,20 @@
 <div class="main-box">
   <h3 class="program-title">顧客登録</h3>
   <div class="program-new-box">
-    <%= form_with model: [@team, @customer], url:team_customers_path, method: :post, id:"program-new-form", local: true do |f| %>
-      <div class="program">
-        <div class="program-name">
-          <p>顧客名(必須）</p>
-          <%= f.text_field :name, class:"program-name-input"%>
-          <p>顧客名カナ(必須）</p>
-          <%= f.text_field :name_kana, class:"program-name-input"%>
-          <p>住所</p>
-          <%= f.text_field :address, class:"program-name-input"%>
-          <p>電話番号</p>
-          <%= f.text_field :phone_number, class:"program-name-input"%>
-          <p>FAX番号</p>
-          <%= f.text_field :fax_number, class:"program-name-input"%>
-          <p>e-mail</p>
-          <%= f.text_field :email, class:"program-name-input"%>
-          <p>補足</p>
-          <%= f.text_field :explanation, class:"program-name-input"%>
+    <% @schedules.each do |schedule| %>
+      <%= form_with model: [@team, @reserve], url:team_reserves_path, method: :post, local: true do |f| %>
+        <div class="program">
+          <div class="program-name">
+            <span><%shedule.date%></span>
+            <span><%shedule.start_time%></span>
+            <p>枚数</p>
+            <%= f.text_field :name, class:"program-name-input"%>
+          </div>
         </div>
-      </div>
-      <div class="program-submit-box">
-        <%= f.submit "登録",class:"btn-flat-border-submit", id:"new-submit" %>
-      </div>
+        <div class="program-submit-box">
+          <%= f.submit "登録",class:"btn-flat-border-submit", id:"new-submit" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

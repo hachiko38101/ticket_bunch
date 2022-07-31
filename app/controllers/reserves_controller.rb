@@ -9,6 +9,8 @@ class ReservesController < ApplicationController
 
   def new
     @customer = Customer.new
+    @program = Program.find(params[:program_id])
+    @schedules = @program.schedules.order(date: "ASC", start_time: "ASC")
   end
 
   private
